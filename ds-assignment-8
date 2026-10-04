@@ -1,0 +1,107 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int roll[10];
+    int marks[10];
+    int n = 0;
+    int choice;
+    int searchRoll;
+    bool found;
+
+    do
+    {
+        cout << "\n\n===== STUDENT MANAGEMENT SYSTEM =====";
+        cout << "\n1. Add Student";
+        cout << "\n2. Display All Students";
+        cout << "\n3. Search Student";
+        cout << "\n4. Exit";
+
+        cout << "\n\nEnter your choice: ";
+        cin >> choice;
+
+        // Add Student
+        if (choice == 1)
+        {
+            if (n < 10)
+            {
+                cout << "Enter Roll Number: ";
+                cin >> roll[n];
+
+                cout << "Enter Marks: ";
+                cin >> marks[n];
+
+                n++;
+
+                cout << "Student added successfully!";
+            }
+            else
+            {
+                cout << "Student limit reached!";
+            }
+        }
+
+        // Display Students
+        else if (choice == 2)
+        {
+            if (n == 0)
+            {
+                cout << "No student records available.";
+            }
+            else
+            {
+                cout << "\n\nStudent Records:\n";
+
+                for (int i = 0; i < n; i++)
+                {
+                    cout << "Roll Number: " << roll[i];
+                    cout << "  Marks: " << marks[i] << endl;
+                }
+            }
+        }
+
+        // Search Student
+        else if (choice == 3)
+        {
+            cout << "Enter Roll Number to search: ";
+            cin >> searchRoll;
+
+            found = false;
+
+            for (int i = 0; i < n; i++)
+            {
+                if (roll[i] == searchRoll)
+                {
+                    cout << "Student found!";
+                    cout << "\nRoll Number: " << roll[i];
+                    cout << "\nMarks: " << marks[i];
+
+                    found = true;
+                    break;
+                }
+            }
+
+            if (!found)
+            {
+                cout << "Student not found!";
+            }
+        }
+
+        // Exit
+        else if (choice == 4)
+        {
+            cout << "Thank you!";
+        }
+
+        // Invalid Choice
+        else
+        {
+            cout << "Invalid choice!";
+        }
+
+    } while (choice != 4);
+
+    return 0;
+}
