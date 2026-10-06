@@ -1,0 +1,24 @@
+#include <iostream>
+#include <queue>
+using namespace std;
+
+int main() {
+    queue<int> tokens;
+
+    // Generate 5 tokens
+    for (int i = 1; i <= 5; i++) {
+        tokens.push(i);
+        cout << "Token " << i << " issued." << endl;
+    }
+
+    cout << "\nServing customers:\n";
+
+    // Serve customers in the same order
+    while (!tokens.empty()) {
+        cout << "Serving customer with Token: " << tokens.front() << endl;
+        tokens.pop();
+    }
+
+    return 0;
+}
+
